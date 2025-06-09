@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup page</title>
+  </head>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      background-image: url(https://cdn.pixabay.com/photo/2022/04/18/17/26/artwork-7141119_640.png);
+      background-size: cover;
+      justify-content: center;
+      align-items: center;
+    }
+    button {
+      border: 1px solid black;
+    }
+    form {
+      height: 350px;
+      width: 280px;
+      position: relative;
+      border-radius: 4px;
+      display: flex;
+      gap: 16px;
+      background-color: #fff;
+      padding: 33px 10px;
+      flex-direction: column;
+      /* background-color: aqua; */
+    }
+    * {
+      margin: 0%;
+      padding: 0%;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    button {
+      text-transform: capitalize;
+      background-image: linear-gradient(
+        to right,
+        rgb(73, 37, 144),
+        rgb(220, 30, 125)
+      );
+      color: #fff;
+    }
+    a {
+      color: rgb(220, 30, 125);
+    }
+    h1 {
+      font-size: 25px;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    #btns2 {
+      height: 35px;
+      width: 150px;
+      background-image: linear-gradient(
+        to right,
+        rgb(73, 37, 144),
+        rgb(220, 30, 125)
+      );
+      color: #fff;
+      border-radius: 3px;
+    }
+
+    #btns1 {
+      height: 35px;
+      width: 150px;
+      background-image: linear-gradient(
+        to right,
+        rgb(73, 37, 144),
+        rgb(220, 30, 125)
+      );
+      color: #fff;
+      border-radius: 3px;
+    }
+
+    .btn1 > button > a {
+      text-decoration: none;
+      color: #fff;
+    }
+    .btn1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+    input {
+      height: 35px;
+      border-radius: 3px;
+      border: 1px solid black;
+    }
+    .inp {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .inp > input::placeholder {
+      padding-left: 5px;
+    }
+    #a1 {
+      font-size: 14px;
+      text-decoration: none;
+    }
+    #btn3 {
+      padding: 8px 0px;
+    }
+    #btn2 > button {
+      text-align: center;
+      text-transform: capitalize;
+    }
+    .last {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 0px;
+    }
+    .last > a {
+      text-decoration: none;
+      text-transform: capitalize;
+    }
+    .last > span {
+      font-size: 13px;
+    }
+  </style>
+  <body>
+    <form onsubmit="signup(event)">
+      <h1>signup form</h1>
+      <div class="btn1">
+        <button id="btns1"><a href="login.html">login</a></button>
+        <button id="btns2"><a href="./signup.html">signup</a></button>
+      </div>
+      <div class="inp">
+        <input
+          type="text"
+          name="input"
+          id="name"
+          placeholder="Enter tha Name"
+        />
+        <input
+          type="email"
+          name="input"
+          id="signup-email"
+          placeholder="Enter Email Address"
+        />
+      </div>
+      <div class="inp">
+        <input
+          type="password"
+          name="input"
+          id="signup-pass"
+          placeholder="Confirm Password"
+        />
+      </div>
+      <button onclick="signup()" id="btn3">signup</button>
+    </form>
+    <script src="./index.js"></script>
+  </body>
+</html>

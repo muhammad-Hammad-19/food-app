@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurants Menu</title>
+    <style>
+      * {
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .nav {
+        height: 80px;
+        width: 100%;
+        background-color: #ffffff11;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 12px;
+      }
+      .nav > img {
+        height: 35px;
+      }
+      #btn > button {
+        cursor: pointer;
+        color: white;
+        background-color: rgb(212, 18, 102);
+        border: 1px solid black;
+        border-radius: 6px;
+        padding: 10px 25px;
+        font-weight: bold;
+      }
+      #heading {
+        text-align: center;
+        color: rgb(212, 18, 102);
+        text-decoration: underline;
+        font-size: 35px;
+        margin: 15px 0;
+        text-transform: capitalize;
+      }
+      #select-rest-h2 {
+        color: rgb(212, 18, 102);
+        text-decoration: underline;
+        text-align: center;
+        margin-bottom: 10px;
+        text-transform: capitalize;
+      }
+      .menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 0 20px;
+      }
+      .restaurants_list {
+        gap: 10px;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        width: 250px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      .restaurants_list img {
+        height: 150px;
+        width: 100%;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+      .restaurants_list h3 {
+        margin: 10px 0 5px;
+        color: #d41266;
+      }
+      .restaurants_list button {
+        margin-top: 8px;
+        padding: 8px 20px;
+        background-color: #d41266;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+      .restaurants_list button:hover {
+        background-color: #a10d4a;
+      }
+      @media screen and (max-width: 550px) {
+        .menu {
+          flex-direction: column;
+          align-items: center;
+        }
+        #btn > button {
+          border: 1px solid black;
+          border-radius: 6px;
+          padding: 9px 10px;
+        }
+        .nav > img {
+          height: 26px;
+        }
+        .nav {
+          padding: 0px 13px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <img
+        src="https://www.foodpanda.com/wp-content/uploads/2023/06/foodpanda_logo_2023.svg"
+        alt=""
+      />
+      <div id="btn">
+        <button onclick="logout()">Logout</button>
+        <button onclick="view()">View Cart</button>
+      </div>
+    </div>
+    <hr />
+    <h2 id="heading">Restaurants Menu</h2>
+    <div class="menu" id="restaurant-container"></div>
+    <script src="./app.js"></script>
+  </body>
+</html>

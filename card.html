@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #fff7fa;
+      }
+      h2 {
+        color: #d41266;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .card-div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fff3f8;
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .cart-total {
+        margin-top: 20px;
+        text-align: right;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      #place-order {
+        margin-top: 20px;
+        background-color: #d41266;
+        color: white;
+        padding: 10px 25px;
+        border: none;
+        border-radius: 8px;
+        float: right;
+        cursor: pointer;
+      }
+
+      #p-m-r {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      #p-m-r > button {
+        background-color: #d41266;
+        color: white;
+        padding: 6px 10px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .qty-display {
+        min-width: 25px;
+        text-align: center;
+        font-weight: bold;
+        background: #fff;
+        padding: 6px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+
+      .remove-btn {
+        background-color: red !important;
+      }
+
+      #place-order:hover {
+        background-color: #a10d4a;
+      }
+      @media screen and (max-width: 550px) {
+        .card-div {
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <div class="cart-total">Total: ₹<span id="total">0</span></div>
+    <button onclick="place_order()" id="place-order">Place Order</button>
+    <script>
+      let items = JSON.parse(localStorage.getItem("items")) || [];
+      const max = 5;
+      const min = 1;
+      const cart_items = document.getElementById("cart-items");
+      const totalSpan = document.getElementById("total");
+      function calculateTotal() {
+        let total = 0;
+        items.forEach((item) => {
+          total += item.price * item.qry;
+        });
+        totalSpan.textContent = total;
+      }
+      function render_cards() {
+        cart_items.innerHTML = "";
+        items.forEach((item, index) => {
+          let div = document.createElement("div");
+          div.className = "card-div";
+          div.innerHTML = `
+            <span>${item.name}</span>
+            <span>₹${item.price}</span>
+            <div id="p-m-r">
+              <button onclick="subt(${index})">-</button>
+              <span class="qty-display" id="qty-${index}">${item.qry}</span>
+              <button onclick="qty(${index})">+</button>
+              <button class="remove-btn" onclick="remove(${index})">Remove</button>
+            </div>
+          `;
+          cart_items.appendChild(div);
+        });
+        localStorage.setItem("items", JSON.stringify(items));
+        calculateTotal();
+      }
+
+      function qty(index) {
+        if (items[index].qry < max) {
+          items[index].qry++;
+          render_cards();
+        } else {
+          alert("Maximum quantity reached!");
+        }
+      }
+      function subt(index) {
+        if (items[index].qry > min) {
+          items[index].qry--;
+          render_cards();
+        } else {
+          alert("Minimum quantity is 1");
+        }
+      }
+      function remove(index) {
+        items.splice(index, 1);
+        localStorage.setItem("items", JSON.stringify(items));
+        alert("Item removed");
+        render_cards();
+      }
+      let place_order = () => {
+        items.forEach((data) => {
+          localStorage.removeItem("items", data);
+        });
+        location.href = "admin.html";
+        alert("Order placed successfully!");
+      };
+      render_cards();
+    </script>
+  </body>
+</html>

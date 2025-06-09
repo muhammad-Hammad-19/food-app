@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>web app food Panda</title>
+  </head>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-image: url(https://cdn.pixabay.com/photo/2022/04/18/17/26/artwork-7141119_640.png);
+      background-size: cover;
+      gap: 10px;
+    }
+    h1 {
+      color: #fff;
+    }
+    * {
+      margin: 0%;
+      padding: 0%;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .btns {
+      display: flex;
+      gap: 10px;
+    }
+    .btns > button > a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .btns > button {
+      height: 45px;
+      width: 130px;
+      border: 1px solid white;
+      border-radius: 4px;
+      background-image: linear-gradient(
+        to right,
+        rgb(73, 37, 144),
+        rgb(220, 30, 125)
+      );
+    }
+    @media screen and (max-width: 550px) {
+      #welcome {
+        font-size: 20px;
+      }
+    }
+  </style>
+  <body>
+    <h1 id="welcome">Welcome to tha Food Panda Website</h1>
+    <div class="btns">
+      <button><a href="./login.html">Login</a></button>
+      <button><a href="./signup.html">Signup</a></button>
+    </div>
+  </body>
+</html>
